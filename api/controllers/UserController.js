@@ -9,10 +9,9 @@ module.exports = {
 	
   // before user is created, salt password
 
-
   login: function (req, res) {
     var bcrypt = require('bcrypt');
-    User.findOneByEmail(req.body.email).done(function (err, user) {
+    User.findOne({email: req.body.email}).exec(function (err, user) {
       if (err) res.json({ error: 'DB error' }, 500);
 
       if (user) {
@@ -34,6 +33,5 @@ module.exports = {
       }
     });
   }
-  
 };
 

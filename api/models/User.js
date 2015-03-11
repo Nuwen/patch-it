@@ -20,6 +20,7 @@ module.exports = {
     }
   },
 
+  // Salts password prior to storage
   beforeCreate: function (attrs, next) {
     var bcrypt = require('bcrypt');
 
@@ -34,6 +35,6 @@ module.exports = {
       });
     });
   },
-  
+
 };
 

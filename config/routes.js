@@ -38,7 +38,7 @@ module.exports.routes = {
 
   'GET /login': {
     view: 'partials/login'
-  },
+    },
 
   'POST /login': {
     controller: 'UserController',

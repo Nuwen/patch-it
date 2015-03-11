@@ -1,17 +1,19 @@
 html(ng-app='patch-it')
   head
-    title PatchIt - #{title}
+    title= sails.config.appName + ' | ' + title
+    // SCRIPTS
+    script(src="/js/dependencies/sails.io.js")
+    script(src="/js/dependencies/angular.js")
+    script(src="/js/dependencies/bootstrap/ui-bootstrap.js")
+    script(src="/js/login.js")
+    // SCRIPTS END
+    // STYLES
+    link(rel="stylesheet", href="/styles/bootstrap-theme.min.css")
+    link(rel="stylesheet", href="/styles/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles/importer.css")
+    // STYLES END
   body
     block menu
     block content
     block footer
     block scripts
-      // SCRIPTS
-      script(src="/js/dependencies/sails.io.js")
-      script(src="/js/dependencies/angular.js")
-      script(src="/js/dependencies/bootstrap/ui-bootstrap.js")
-      script(src="/js/login.js")
-      // SCRIPTS END
-      // STYLES
-      link(rel="stylesheet", href="/styles/importer.css")
-      // STYLES END
