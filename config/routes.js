@@ -43,6 +43,10 @@ module.exports.routes = {
   'POST /login': {
     controller: 'UserController',
     action: 'login'
+  },
+
+  'GET /temp': {
+    view: 'partials/temp'
   }
   /***************************************************************************
   *                                                                          *

@@ -1,0 +1,52 @@
+extends ../layout.jade
+
+block content
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 1!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 2!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 3!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 4!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 5!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 6!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 7!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 8!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 9!"
+    ) Copy me
+  button(
+    class='copy-button'
+    data-clipboard-text="Copy Me 10!"
+    ) Copy me
+
+  script(type='text/javascript').
+    $(document).ready(function(){
+    ZeroClipboard.config( { swfPath: "swf/ZeroClipboard.swf" } );
+    var client = new ZeroClipboard($(".copy-button"));
+
+    });
+
+
