@@ -1,52 +1,27 @@
 extends ../layout.jade
 
 block content
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 1!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 2!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 3!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 4!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 5!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 6!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 7!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 8!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 9!"
-    ) Copy me
-  button(
-    class='copy-button'
-    data-clipboard-text="Copy Me 10!"
-    ) Copy me
-
-  script(type='text/javascript').
-    $(document).ready(function(){
-    ZeroClipboard.config( { swfPath: "swf/ZeroClipboard.swf" } );
-    var client = new ZeroClipboard($(".copy-button"));
-
-    });
-
-
+  .container(ng-controller='TaskCtrl')
+    table(class='table table-hover')
+      thead
+        tr
+          th DO::
+          th ASK::
+          th
+            .btn-group.col-md-5(dropdown)
+              button(type='button' class='btn btn-block btn-danger dropdown-toggle'
+                ng-click='actionSubmit()'
+                ng-disabled='disabled'
+                dropdown-toggle) 
+                b {{selectedAction.name}} 
+                span(class='caret')
+              ul(class='dropdown-menu' role='menu')
+                li(ng-repeat='action in actions')
+                  a(href='#' ng-click='setAction(action)') {{action.name}}
+      tbody
+        tr(ng-repeat='task in tasks')
+          td {{task.cmd}}
+          td {{task.ask}}
+          td
+            input(type='checkbox')
+    

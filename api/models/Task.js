@@ -9,6 +9,12 @@ module.exports = {
 
   attributes: {
 
+    // [] of STR
+    cmd: {type: 'array'},
+    ask: {type: 'array'},
+    jira: {type: 'array'},
+
+    
   }
 };
 
