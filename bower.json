@@ -1,0 +1,38 @@
+{
+  "name": "patch-it",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Nuwen/patch-it",
+  "authors": [
+    "Leigh Johnson / Nuwen <hi@leighjohnson.me>"
+  ],
+  "description": "A test suite management tool to help Funcom QA test new video game patches for blockers and bugs.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "sails",
+    "node",
+    "sass",
+    "bower",
+    "angular",
+    "patch",
+    "utility",
+    "test",
+    "suite",
+    "video",
+    "game",
+    "QA"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.4"
+  }
+}
