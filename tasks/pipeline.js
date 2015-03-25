@@ -26,16 +26,14 @@ var jsFilesToInject = [
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
 
-  // !! Dependencies should primarily be handled by Bower
-  // !! Angular is preloaded here to avoid modules loading first
+  // Dependencies should primarily be handled by Bower
+  // Angular/jquery preloaded here to avoid modules loading first
   'js/dependencies/angular/**/*.js',
+  'js/dependencies/jquery/**/*.js',
   'js/dependencies/**/*.js',
-
-  // All of the rest of your client-side js files
-  // will be injected here in no particular order.
-  'js/**/*.js'
-  // Disabled for modular injection per template
-
+  // Load top-level app scripts
+  // DO NOT change this statement to /**/*.js because we want to load modules per template
+  'js/*.js'
 ];
 
 

@@ -8,7 +8,6 @@ module.exports = function(grunt) {
         options: {
           expand: true,
           keepExpandedHierarchy: false,
-          ignorePackages: ['bootstrap-sass-official'],
           packageSpecific: {
             'zeroclipboard': {
               dest: '.tmp/public/swf'

@@ -33,7 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'dashboard'
+    view: 'partials/dashboard'
   },
 
   'GET /login': {
@@ -45,8 +45,9 @@ module.exports.routes = {
     action: 'login'
   },
 
-  'GET /temp': {
-    view: 'partials/temp'
+  // 
+  'GET :product': {
+    view: 'partials/product'
   }
   /***************************************************************************
   *                                                                          *

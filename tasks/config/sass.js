@@ -18,7 +18,6 @@ module.exports = function(grunt) {
 				style: 'expanded',
 				loadPath: 'bower_components/bootstrap-sass-official/assets/stylesheets'
 			},
-
 			files: [
 				{
 				expand: true,
@@ -28,7 +27,6 @@ module.exports = function(grunt) {
 				ext: '.css'
 			}]
 		}
-
 	});
 
 grunt.loadNpmTasks('grunt-contrib-sass');
