@@ -29,18 +29,14 @@ html(ng-app='patch-it' lang='en')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='#') Project name
+          a.navbar-brand(href='#')=sails.config.appName
         .navbar-collapse.collapse
           ul.nav.navbar-nav
             li.active
-              a(href='#') Home
-            li
-              a(href='#about') About
-            li
-              a(href='#contact') Contact
+              a(href='#') Projects
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
-                | Dropdown 
+                | Device 
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
