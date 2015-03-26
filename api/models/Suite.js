@@ -18,6 +18,12 @@ module.exports = {
     tests: {
       collection: 'test',
       via: 'suite'
+    },
+    platforms: {
+      model: 'platform'
+    },
+    template: {
+      model: 'template'
     }
   }
 };
