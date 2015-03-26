@@ -13,11 +13,23 @@ module.exports = {
       unique: true,
       required: true
     },
+    // users assigned to project
+    users: {
+      collection: 'user',
+      via: 'projects'
+    },
     platforms: {
       collection: 'platform',
       via: 'project'
+    },
+    templates: {
+      collection: 'template',
+      via: 'project'
+    },
+    suites: {
+      collection: 'suite',
+      via: 'project'
     }
-
   }
 };
 

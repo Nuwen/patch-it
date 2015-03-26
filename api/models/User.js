@@ -8,8 +8,16 @@
 module.exports = {
 
   attributes: {
-    email: {
+    firstName: {
       type: 'string',
+      required: true
+    },
+    lastName: {
+      type: 'string',
+      required: true 
+    },
+    email: {
+      type: 'email',
       unique: true,
       required: true
     },
@@ -17,6 +25,15 @@ module.exports = {
       type: 'string',
       required: true,
       minLength: 6
+    },
+    projects: {
+      collection: 'Project',
+      via: 'users',
+      dominant: true
+    },
+    isAdmin: {
+      type: 'boolean',
+      defaultsTo: false
     }
   },
 
