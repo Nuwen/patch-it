@@ -12,14 +12,14 @@ module.exports = {
       type: 'string',
       unique: true
     },
-    project: {
-      model: 'project'
+    projects: {
+      collection: 'project',
+      via: 'platforms'
     },
-    suites: {
-      collection: 'suite',
+    devices: {
+      collection: 'device',
       via: 'platforms'
     }
   }
-
 };
 

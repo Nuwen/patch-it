@@ -13,14 +13,19 @@ module.exports = {
       unique: true,
       required: true
     },
-    // users assigned to project
+    platforms: {
+      collection: 'platform',
+      via: 'projects',
+      dominant: true
+    },
+    devices: {
+      collection: 'device',
+      via: 'projects',
+      dominant: true
+    },
     users: {
       collection: 'user',
       via: 'projects'
-    },
-    platforms: {
-      collection: 'platform',
-      via: 'project'
     },
     templates: {
       collection: 'template',

@@ -2,7 +2,7 @@
   "name": "patch-it",
   "private": true,
   "version": "0.0.1",
-  "description": "A test suite management tool to help Funcom QA test new video game patches for blockers and bugs.",
+  "description": "A test suite management tool to help Funcom QA test pass/fail game branches",
   "keywords": [],
   "dependencies": {
     "bcrypt": "^0.8.1",

@@ -11,6 +11,22 @@ module.exports = {
     name: {
       type: 'string',
       required: true
+    },
+    // Dxdiag, system profiler, etc
+    spec: {
+      type: 'binary'
+    },
+    // Relationships 
+    projects: {
+      collection: 'project',
+      via: 'devices'
+    },
+    platforms: {
+      
+    },
+    users: {
+      collection: 'user',
+      via: 'devices'
     }
   }
 };

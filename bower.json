@@ -5,23 +5,10 @@
   "authors": [
     "Leigh Johnson / Nuwen <hi@leighjohnson.me>"
   ],
-  "description": "A test suite management tool to help Funcom QA test new video game patches for blockers and bugs.",
-  "moduleType": [
-    "node"
-  ],
+  "description": "A test suite management tool to help Funcom QA test pass/fail game branches",
   "keywords": [
-    "sails",
-    "node",
-    "sass",
-    "bower",
-    "angular",
-    "patch",
-    "utility",
-    "test",
-    "suite",
-    "video",
-    "game",
-    "QA"
+    "sails.js",
+    "node"
   ],
   "license": "MIT",
   "private": true,
@@ -33,6 +20,9 @@
     "tests"
   ],
   "dependencies": {
+    "angular-bootstrap": "~0.12.1",
+    "jquery": "~2.1.3",
+    "ng-clip": "~0.2.6",
     "bootstrap-sass-official": "~3.3.4"
   }
 }

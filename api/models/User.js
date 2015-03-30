@@ -27,7 +27,12 @@ module.exports = {
       minLength: 6
     },
     projects: {
-      collection: 'Project',
+      collection: 'project',
+      via: 'users',
+      dominant: true
+    },
+    devices: {
+      collection: 'device',
       via: 'users',
       dominant: true
     },

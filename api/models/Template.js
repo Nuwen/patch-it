@@ -14,7 +14,7 @@ module.exports = {
       unique: true
     },
     project: {
-      model: 'project'
+      model: 'user'
     },
     tests: {
       collection: 'test',
@@ -24,10 +24,18 @@ module.exports = {
       collection: 'suite',
       via: 'template'
     },
-    platform: {
+    project: {
+      model: 'project'
+    },
+    platforms: {
       type: 'array',
       enum: [],
       enum_options: {model: 'platform', fields: ['name']}
+    },
+    devices: {
+      type: 'array',
+      enum: [],
+      enum_options: {model: 'device', fields: ['name']}
     }
   }
 };
