@@ -1,4 +1,4 @@
-angular.module('patch-it', ['ui.bootstrap']);
+angular.module('patch-it', ['ui.bootstrap', 'ngCookies']);
 
 // Login controller
 angular.module('patch-it').controller('LoginCtrl', ['$scope','$http', function ($scope, $http){
@@ -8,6 +8,7 @@ angular.module('patch-it').controller('LoginCtrl', ['$scope','$http', function (
     $http.post('/login', { 
       email: user.email,
       password: user.password
+      remember: user.remember
     }).
     success(function(data, status, headers, config){
       // async cb when response is available
@@ -20,7 +21,6 @@ angular.module('patch-it').controller('LoginCtrl', ['$scope','$http', function (
       $scope.dataLoading = false;
       $scope.alerts.push({msg: data});
     });
-
 }
 }]);
 

@@ -21,7 +21,13 @@ module.exports = {
           if (match) {
             // password match
             req.session.user = user.id;
+
+            if (user.remember){
+              res.cookie('email',  user.email);
+              res.cookie('isAdmin', user.isAdmin);
+            }
             res.json(user);
+            console.log(user.isAdmin);
           } else {
             // invalid password
             if (req.session.user) req.session.user = null;
