@@ -7138,5 +7138,13 @@ button.close {
     display: none !important;
   }
 }
+body {
+  padding-top: 70px;
+}
+
+.menu-hud {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 
 /*# sourceMappingURL=importer.css.map */

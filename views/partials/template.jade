@@ -1,0 +1,38 @@
+extends ../layout.jade
+
+block content
+  .container(ng-controller='TaskCtrl')
+    table(class='table table-hover')
+      thead
+        tr
+          th DO::
+          th ASK::
+          th ALL
+            br
+            input(type='checkbox')
+      tbody
+        tr(ng-repeat='task in tasks')
+          td {{task.cmd}}
+          td {{task.ask}}
+          td
+            input(type='checkbox')
+
+append menu-hud
+  li(ng-controller='TaskCtrl')
+    .btn-group(dropdown)
+      button.btn.btn-info(
+        type='button'
+        ng-click='actionSubmit()'
+        ng-disabled='disabled'
+        ) {{selectedAction.name}} 
+      button.btn.btn-info.dropdown-toggle(
+        dropdown-toggle
+        data-toggle='dropdown'
+        aria-expanded='false')  &nbsp;
+        span.caret
+        span.sr-only Toggle Dropdown
+      ul(class='dropdown-menu' role='menu')
+        li(ng-repeat='action in actions')
+          a(href='#' ng-click='setAction(action)') {{action.name}}
+append scripts
+  script(src='/js/modules/template.js')

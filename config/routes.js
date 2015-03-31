@@ -46,8 +46,8 @@ module.exports.routes = {
   },
 
   // 
-  'GET :product': {
-    view: 'partials/product'
+  'GET /template/new' : {
+    view: 'partials/template'
   }
   /***************************************************************************
   *                                                                          *
