@@ -47,7 +47,11 @@ module.exports.routes = {
 
   // 
   'GET /template/new' : {
-    view: 'partials/template'
+    view: 'partials/template-new'
+  },
+
+  'GET /suites' : {
+    view: 'partials/suite'
   }
   /***************************************************************************
   *                                                                          *

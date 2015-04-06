@@ -10,6 +10,7 @@ html(ng-app='patch-it' lang='en')
     script(src="/js/dependencies/sails.io.js")
     script(src="/js/dependencies/angular/angular.js")
     script(src="/js/dependencies/jquery/jquery.js")
+    script(src="/js/dependencies/angular-animate/angular-animate.js")
     script(src="/js/dependencies/angular-bootstrap/ui-bootstrap-tpls.js")
     script(src="/js/dependencies/angular-cookies/angular-cookies.js")
     script(src="/js/dependencies/bootstrap-sass-official/bootstrap.js")
@@ -30,8 +31,8 @@ html(ng-app='patch-it' lang='en')
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand.hidden-xs.hidden-sm(href='#')=sails.config.appName
-            .row.menu-hud.pull-left
+            a.navbar-brand.hidden-xs(href='#')=sails.config.appName
+            .menu-hud.pull-left
               block menu-hud
        
           .navbar-collapse.collapse.navbar-right

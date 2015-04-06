@@ -11,10 +11,8 @@ module.exports = {
   attributes: {
     name: {
       type: 'string',
-      unique: true
-    },
-    project: {
-      model: 'user'
+      unique: true,
+      required: true
     },
     tests: {
       collection: 'test',
