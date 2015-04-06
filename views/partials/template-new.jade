@@ -22,11 +22,21 @@ block content
     div.animate-show(ng-show='state.clone')
       .page-header.text-center
         small() Step 2: Filter existing templates
-      .row
-        .btn-toolbar()
-          button.btn.btn-lg.btn-primary(
-            ng-repeat='project in projects') 
-            | {{project.name}}
+      form(name='filter')
+        .row.text-center
+          h4 Project: {{projectModel}}
+          .btn-group()
+              button.btn.btn-lg.btn-danger(
+                ng-repeat='project in projects'
+                type='button'
+                ng-model='projectModel.id'
+                btn-radio='project.id'
+                name='project.name') {{project.name}}
+        .row.text-center(ng-show='{{filter.dirty}}')
+          h4 Platform (optional):
+          .btn-group()
+            button.btn.btn-lg.btn-warning(
+              ng-repeat='platform in filteredProject.platforms')
 
         // After selection, redirect to :id/template-edit
 append scripts
