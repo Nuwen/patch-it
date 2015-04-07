@@ -10,7 +10,11 @@ module.exports = {
   attributes: {
     name: {
       type: 'string',
-      unique: true
+      unique: true,
+    },
+    description: {
+      type: 'string',
+      required: true
     },
     project: {
       model: 'project'

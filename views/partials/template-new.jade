@@ -2,11 +2,11 @@ extends ../layout.jade
 
 block content
   div(ng-controller='TemplateNewCtrl')
-    .text-center
+    .page-header.text-center
       h2 New Template
     div.animate-show(ng-show='state.reset')
-      .page-header.text-center
-        small() Step 1: choose an action
+      .text-center
+        h4 Step 1: choose an action
       .row
         .col-md-4.col-md-offset-4
           .form-group
@@ -20,23 +20,33 @@ block content
         small() Step 2: add test tasks
 
     div.animate-show(ng-show='state.clone')
-      .page-header.text-center
-        small() Step 2: Filter existing templates
+      .text-center
+        h4 Step 2: Filter existing templates
       form(name='filter')
         .row.text-center
+          // Project Filter
           h4 Project: {{projectModel}}
           .btn-group()
               button.btn.btn-lg.btn-danger(
-                ng-repeat='project in projects'
                 type='button'
+                ng-repeat='project in projects'
                 ng-model='projectModel.id'
+                ng-change='setFilter({project:project})'
                 btn-radio='project.id'
                 name='project.name') {{project.name}}
-        .row.text-center(ng-show='{{filter.dirty}}')
-          h4 Platform (optional):
+          .text-center(ng-show='filter.$dirty')
+          // Platform Filter
+          h4 Platform {{platformModel}}:
           .btn-group()
             button.btn.btn-lg.btn-warning(
-              ng-repeat='platform in filteredProject.platforms')
+              type='button'
+              ng-repeat='platform in filteredProject.platforms'
+              ng-model='platformModel.id'
+              ng-change='setFilter({platform:platform})'
+              btn-radio='platform.id'
+              name='platform.name') {{platform.name}}
+          // Results
+          h4 Results
 
         // After selection, redirect to :id/template-edit
 append scripts

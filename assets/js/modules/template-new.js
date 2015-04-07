@@ -4,7 +4,8 @@
 angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', function ($scope, $http){
   $scope.state = {};
   $scope.state.reset = true;
-  $scope.projectModel =  {id: 1};
+  $scope.projectModel =  {};
+  $scope.platformModel = {};
 
   $http.get('/project').success( function(data){
       $scope.projects = data
@@ -14,7 +15,11 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
     $scope.state[state] = state;
   }
 
-  $scope.filterProject = function(project){
-    $scope.filteredProject = project;
+  $scope.setFilter = function(options){
+    console.log(options);
+  }
+
+  $scope.reset = function(){
+    console.log('it reset woo');
   }
 }]);

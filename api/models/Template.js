@@ -14,6 +14,10 @@ module.exports = {
       unique: true,
       required: true
     },
+    description:{
+      type: 'string',
+      required: true
+    },
     tests: {
       collection: 'test',
       via: 'template'
