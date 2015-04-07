@@ -16,10 +16,13 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   }
 
   $scope.setFilter = function(options){
-    console.log(options);
+    for (var property in options){
+      if (options.hasOwnProperty(property)){
+        $scope[property+'Model'] = options[property];
+      }
+    }
   }
 
   $scope.reset = function(){
-    console.log('it reset woo');
   }
 }]);

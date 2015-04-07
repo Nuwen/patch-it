@@ -31,7 +31,7 @@ block content
                 type='button'
                 ng-repeat='project in projects'
                 ng-model='projectModel.id'
-                ng-change='setFilter({project:project})'
+                ng-change='setFilter({"project":project}); reset()'
                 btn-radio='project.id'
                 name='project.name') {{project.name}}
           .text-center(ng-show='filter.$dirty')
@@ -40,7 +40,7 @@ block content
           .btn-group()
             button.btn.btn-lg.btn-warning(
               type='button'
-              ng-repeat='platform in filteredProject.platforms'
+              ng-repeat='platform in projectModel.platforms'
               ng-model='platformModel.id'
               ng-change='setFilter({platform:platform})'
               btn-radio='platform.id'
