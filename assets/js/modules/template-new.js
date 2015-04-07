@@ -4,8 +4,9 @@
 angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', function ($scope, $http){
   $scope.state = {};
   $scope.state.reset = true;
-  $scope.projectModel =  {};
-  $scope.platformModel = {};
+  $scope.model =  {};
+  $scope.model.project =  undefined;
+  $scope.model.platform = undefined;
 
   $http.get('/project').success( function(data){
       $scope.projects = data
@@ -18,7 +19,7 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   $scope.setFilter = function(options){
     for (var property in options){
       if (options.hasOwnProperty(property)){
-        $scope[property+'Model'] = options[property];
+        $scope.model[property] = options[property];
       }
     }
   }

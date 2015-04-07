@@ -25,25 +25,23 @@ block content
       form(name='filter')
         .row.text-center
           // Project Filter
-          h4 Project: {{projectModel}}
+          h4 Project: @todo {{model.project}}
           .btn-group()
               button.btn.btn-lg.btn-danger(
-                type='button'
                 ng-repeat='project in projects'
-                ng-model='projectModel.id'
-                ng-change='setFilter({"project":project}); reset()'
-                btn-radio='project.id'
+                ng-model='model.project'
+                ng-change='setFilter({"project":project})'
+                btn-radio='project'
                 name='project.name') {{project.name}}
           .text-center(ng-show='filter.$dirty')
           // Platform Filter
-          h4 Platform {{platformModel}}:
+          h4 Platform @todo {{model.platform}}:
           .btn-group()
             button.btn.btn-lg.btn-warning(
-              type='button'
-              ng-repeat='platform in projectModel.platforms'
-              ng-model='platformModel.id'
+              ng-repeat='platform in model.project.platforms'
+              ng-model='model.platform'
               ng-change='setFilter({platform:platform})'
-              btn-radio='platform.id'
+              btn-radio='platform'
               name='platform.name') {{platform.name}}
           // Results
           h4 Results
