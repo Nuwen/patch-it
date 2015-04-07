@@ -30,7 +30,7 @@ block content
               button.btn.btn-lg.btn-danger(
                 ng-repeat='project in projects'
                 ng-model='model.project'
-                ng-change='setFilter({"project":project})'
+                ng-change='reset(); setFilter({"project":project})'
                 btn-radio='project'
                 name='project.name') {{project.name}}
           .text-center(ng-show='filter.$dirty')

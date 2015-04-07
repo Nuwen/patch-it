@@ -25,5 +25,7 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   }
 
   $scope.reset = function(){
+    $scope.model.project =  undefined;
+    $scope.model.platform = undefined;
   }
 }]);
