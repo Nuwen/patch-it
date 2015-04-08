@@ -19,6 +19,10 @@ module.exports = {
     devices: {
       collection: 'device',
       via: 'platforms'
+    },
+    templates: {
+      collection: 'template',
+      via: 'platforms'
     }
   }
 };

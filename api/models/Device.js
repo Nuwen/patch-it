@@ -27,6 +27,10 @@ module.exports = {
     users: {
       collection: 'user',
       via: 'devices'
+    },
+    templates: {
+      collection: 'template',
+      via: 'devices'
     }
   }
 };

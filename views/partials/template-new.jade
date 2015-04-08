@@ -1,51 +1,63 @@
 extends ../layout.jade
 
 block content
-  div(ng-controller='TemplateNewCtrl')
+  div.container(ng-controller='TemplateNewCtrl')
     .page-header.text-center
       h2 New Template
     div.animate-show(ng-show='state.reset')
       .text-center
-        h4 Step 1: choose an action
+        h3 Step 1
+          h4 Choose an action:
       .row
         .col-md-4.col-md-offset-4
           .form-group
-              button.btn.btn-lg.btn-block.btn-primary(
-                ng-click='setState("new")') New
+              button.btn.btn-block.btn-primary(
+                ng-click='setState("new")') Spankin' New
           .form-group
-            button.btn.btn-lg.btn-block.btn-primary(
-              ng-click='setState("clone")') Clone
+            button.btn.btn-block.btn-primary(
+              ng-click='setState("clone")') Clone Existing
     div.animate-show(ng-show='state.new')
       .page-header.text-center
-        small() Step 2: add test tasks
+        h1.small() Step 2: add test tasks
 
     div.animate-show(ng-show='state.clone')
       .text-center
-        h4 Step 2: Filter existing templates
-      form(name='filter')
-        .row.text-center
-          // Project Filter
-          h4 Project: @todo {{model.project}}
-          .btn-group()
-              button.btn.btn-lg.btn-danger(
-                ng-repeat='project in projects'
-                ng-model='model.project'
-                ng-change='reset(); setFilter({"project":project})'
-                btn-radio='project'
-                name='project.name') {{project.name}}
-          .text-center(ng-show='filter.$dirty')
-          // Platform Filter
-          h4 Platform @todo {{model.platform}}:
-          .btn-group()
-            button.btn.btn-lg.btn-warning(
-              ng-repeat='platform in model.project.platforms'
-              ng-model='model.platform'
-              ng-change='setFilter({platform:platform})'
-              btn-radio='platform'
-              name='platform.name') {{platform.name}}
-          // Results
-          h4 Results
+        h3 Filter by: 
+      form.text-center(name='filter')
+        .form-group 
+          ng-form.btn-group(name='filter-project')
+            button.btn.btn-danger(
+              ng-class="{active: filter-project.$pristine}"
+              ng-change='setFilter({"project":projects})'
+              ng-model='model.project'
+              btn-radio='projects') All
+            button.btn.btn-danger(
+              ng-repeat='project in projects'
+              ng-model='model.project'
+              ng-change='setFilter({"project":project})'
+              btn-radio='project'
+              name='project.name') {{project.name}}
+        // Platform Filter
+        ng-form.btn-group(name='filter-platform')
+          button.btn.btn-warning(
+            ng-class="{active: filter-platform.$pristine}"
+            ng-change='setFilter({"platform": platforms})'
+            ng-model='model.platform'
+            btn-radio='platforms') All
+          button.btn.btn-warning(
+            ng-repeat='platform in platforms'
+            ng-model='model.platform'
+            ng-change='setFilter({"platform":platform})'
+            btn-radio='platform'
+            ) {{platform.name}}
 
+    // Results
+    h4(ng-show='state.clone') Results
+      .well(
+        ng-show='state.clone'
+        ng-repeat='template in model.results') {{template}}
+        span.badge(ng-repeat='platform in template') {{platform.name}}
+              
         // After selection, redirect to :id/template-edit
 append scripts
   script(src='/js/modules/template-new.js')

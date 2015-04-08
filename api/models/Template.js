@@ -30,14 +30,10 @@ module.exports = {
       model: 'project'
     },
     platforms: {
-      type: 'array',
-      enum: [],
-      enum_options: {model: 'platform', fields: ['name']}
+      model: 'platform'
     },
     devices: {
-      type: 'array',
-      enum: [],
-      enum_options: {model: 'device', fields: ['name']}
+      model: 'device'
     }
   }
 };
