@@ -18,6 +18,7 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   $scope.model.platform = $scope.platforms;
   $scope.model.results = undefined;
   $scope.model.io = [$scope.model.project, $scope.model.platform];
+  
   $http.get('/template').success(function(data){
     $scope.model.results = data;
   });
@@ -28,9 +29,19 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
 
   $scope.setFilter = function(options){
     console.log(options)
+    query = ''
     for (var property in options){
       if (options.hasOwnProperty(property)){
         $scope.model[property] = options[property];
+        if ($scope.model[property] == $scope[(property+'s')]){
+          // query ALL of property
+          console.log('query ALL')
+          
+        }
+        else {
+          // query {} of property
+          query = query + 
+        }
       }
     }
   }

@@ -30,7 +30,9 @@ module.exports = {
       model: 'project'
     },
     platforms: {
-      model: 'platform'
+      collection: 'platform',
+      via: 'templates',
+      dominant: true
     },
     devices: {
       model: 'device'
