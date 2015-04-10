@@ -28,26 +28,26 @@ block content
           ng-form.btn-group(name='filter-project')
             button.btn.btn-danger(
               ng-class="{active: filter-project.$pristine}"
-              ng-change='setFilter({"project":projects})'
+              ng-change='setFilter({"project":projects, "platform": model.platform})'
               ng-model='model.project'
               btn-radio='projects') All
             button.btn.btn-danger(
               ng-repeat='project in projects'
               ng-model='model.project'
-              ng-change='setFilter({"project":project})'
+              ng-change='setFilter({"project":project, "platform": model.platform})'
               btn-radio='project'
               name='project.name') {{project.name}}
         // Platform Filter
         ng-form.btn-group(name='filter-platform')
           button.btn.btn-warning(
             ng-class="{active: filter-platform.$pristine}"
-            ng-change='setFilter({"platform": platforms})'
+            ng-change='setFilter({"platform": platforms, "project": model.project})'
             ng-model='model.platform'
             btn-radio='platforms') All
           button.btn.btn-warning(
             ng-repeat='platform in platforms'
             ng-model='model.platform'
-            ng-change='setFilter({"platform":platform})'
+            ng-change='setFilter({"platform":platform, "project": model.project})'
             btn-radio='platform'
             ) {{platform.name}}
 

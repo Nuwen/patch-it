@@ -50,6 +50,11 @@ module.exports.routes = {
     view: 'partials/template-new'
   },
 
+  'GET /template/new/filter' : {
+    controller: 'TemplateController',
+    action: 'filter'
+  },
+
   'GET /suites' : {
     view: 'partials/suite'
   }

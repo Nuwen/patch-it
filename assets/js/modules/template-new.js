@@ -9,16 +9,16 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   // Defaults ALL
   $http.get('/project').success( function(data){
       $scope.projects = data;
+      $scope.model.project =  $scope.projects;
+
   });
   $http.get('/platform').success(function(data){
       $scope.platforms = data;
+      $scope.model.platform = $scope.platforms;
   });
     // Filter I/O
-  $scope.model.project =  $scope.projects;
-  $scope.model.platform = $scope.platforms;
   $scope.model.results = undefined;
-  $scope.model.io = [$scope.model.project, $scope.model.platform];
-  
+
   $http.get('/template').success(function(data){
     $scope.model.results = data;
   });
@@ -27,23 +27,20 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
     $scope.state[state] = state;
   }
 
-  $scope.setFilter = function(options){
-    console.log(options)
-    query = ''
-    for (var property in options){
-      if (options.hasOwnProperty(property)){
-        $scope.model[property] = options[property];
-        if ($scope.model[property] == $scope[(property+'s')]){
-          // query ALL of property
-          console.log('query ALL')
-          
-        }
-        else {
-          // query {} of property
-          query = query + 
-        }
+  $scope.setFilter = function(params){
+    console.log(params);
+    for (var property in params){
+      if (params.hasOwnProperty(property)){
+        $scope.model[property] = params[property];
       }
     }
+    $http({
+      url: '/template/new/filter',
+      method: "GET",
+      params: params
+    }).success(function(data){
+      //console.log(data);
+    });
   }
 
   $scope.reset = function(){
