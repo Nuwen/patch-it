@@ -23,17 +23,26 @@ block content
           .form-group
             label(for='new.name') Name: 
             input.form-control(
-              type='text' id='new.name' ng-model='new.name' placeholder='Enter a template name...')
+              type='text' id='new.name' 
+              ng-model='new.name' 
+              placeholder='Enter a name...'
+              required)
           .form-group
             label(for='new.description') Description: 
-            input.form-control(id='new.description' type='text' ng-model='new.description')
+            input.form-control(
+              id='new.description' 
+              type='text'
+              ng-model='new.description'
+              placeholder='Enter a description...'
+              required)
           .form-group
             label(for='new.project') Project: 
             select.form-control(
               id='new.project'
               ng-model='new.project'
-              ng-options='project as project.name for project in projects') {{new.project.value}}
-          .form-group
+              ng-options='project as project.name for project in projects'
+              reuired) {{new.project.value}}
+          .form-group(required)
             label(for='new.platform') Add Platforms: 
             .btn-group()
               button.btn.btn-warning(
@@ -45,6 +54,9 @@ block content
                 ng-change='newPlatformAll()'
                 btn-checkbox
                 ng-model='new.platforms.all') All
+          .form-group
+            button.btn.btn-lg.btn-primary.full-width(
+              ng-click='addTemplate') Save
 
     // End state.new
 
