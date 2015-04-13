@@ -15,7 +15,6 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   $http.get('/platform').success(function(data){
       $scope.platforms = data;
       $scope.model.platforms = $scope.platforms;
-      $scope.new.platforms = $scope.platforms[0];
   });
     // Filter I/O
   $scope.model.results = undefined;
@@ -74,7 +73,20 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   }
 
   $scope.create = function(params){
-    
+
+  }
+
+  $scope.newPlatformById = function(platforms){
+    $scope.new.platforms.all = false;
+    console.log($scope.new.platforms);
+  }
+
+  $scope.newPlatformAll = function(platforms){
+    for (var property in $scope.new.platforms){
+      if (property != 'all'){
+        $scope.new.platforms[property] = false;
+      }
+    } 
   }
 
 }]);

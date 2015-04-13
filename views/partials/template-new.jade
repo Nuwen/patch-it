@@ -37,7 +37,14 @@ block content
             label(for='new.platform') Add Platforms: 
             .btn-group()
               button.btn.btn-warning(
-                ng-repeat='platform in platforms') {{platform.name}}
+                ng-repeat='platform in platforms'
+                ng-change='newPlatformById(platform)'
+                ng-model='new.platforms[platform.id]'
+                btn-checkbox) {{platform.name}}
+              button.btn.btn-warning(
+                ng-change='newPlatformAll()'
+                btn-checkbox
+                ng-model='new.platforms.all') All
 
     // End state.new
 
