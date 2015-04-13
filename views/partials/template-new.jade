@@ -16,10 +16,32 @@ block content
           .form-group
             button.btn.btn-block.btn-primary(
               ng-click='setState("clone")') Clone Existing
+    // Begin state.new
     div.animate-show(ng-show='state.new')
-      .page-header.text-center
-        h1.small() Step 2: add test tasks
+      .col-md-4.col-md-offset-4
+        form.form-horizontal.form(name='new' role='form' novalidate)
+          .form-group
+            label(for='new.name') Name: 
+            input.form-control(
+              type='text' id='new.name' ng-model='new.name' placeholder='Enter a template name...')
+          .form-group
+            label(for='new.description') Description: 
+            input.form-control(id='new.description' type='text' ng-model='new.description')
+          .form-group
+            label(for='new.project') Project: 
+            select.form-control(
+              id='new.project'
+              ng-model='new.project'
+              ng-options='project as project.name for project in projects') {{new.project.value}}
+          .form-group
+            label(for='new.platform') Add Platforms: 
+            .btn-group()
+              button.btn.btn-warning(
+                ng-repeat='platform in platforms') {{platform.name}}
 
+    // End state.new
+
+    // Begin state.clone
     div.animate-show(ng-show='state.clone')
       .text-center
         h3 Filter by: 
@@ -67,7 +89,7 @@ block content
           span.label.label-danger{{template.project.name}}
         h4
           span.label.label-warning(ng-repeat='platform in template.platforms') {{platform.name}}
-              
-        // After selection, redirect to :id/template-edit
+    
+    // End state.clone       
 append scripts
   script(src='/js/modules/template-new.js')

@@ -10,11 +10,12 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   $http.get('/project').success( function(data){
       $scope.projects = data;
       $scope.model.project =  $scope.projects;
-
+      $scope.new.project = $scope.projects[0];
   });
   $http.get('/platform').success(function(data){
       $scope.platforms = data;
       $scope.model.platforms = $scope.platforms;
+      $scope.new.platforms = $scope.platforms[0];
   });
     // Filter I/O
   $scope.model.results = undefined;
@@ -70,6 +71,10 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
     }).error(function(error){
       console.log('error, ', error);
     });
+  }
+
+  $scope.create = function(params){
+    
   }
 
 }]);
