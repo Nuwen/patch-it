@@ -14,7 +14,7 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   });
   $http.get('/platform').success(function(data){
       $scope.platforms = data;
-      $scope.model.platform = $scope.platforms;
+      $scope.model.platforms = $scope.platforms;
   });
     // Filter I/O
   $scope.model.results = undefined;
@@ -28,24 +28,48 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
   }
 
   $scope.setFilter = function(params){
-    console.log(params);
+    var query = '';
     for (var property in params){
       if (params.hasOwnProperty(property)){
         $scope.model[property] = params[property];
       }
+      if (params[property] instanceof Array){
+        // if property type is Array, no query string is necessary
+      }
+      else {
+        // query parameters
+        query = query + property + '=' + params[property].id + '&'
+      }
     }
     $http({
-      url: '/template/new/filter',
-      method: "GET",
-      params: params
-    }).success(function(data){
-      //console.log(data);
+      url: '/template?'+query,
+      type: 'GET'    
+      }).success(function(data){
+        $scope.model.results = data;
+        $scope.$apply();
     });
   }
 
   $scope.reset = function(){
     $scope.model.project =  undefined;
-    $scope.model.platform = undefined;
+    $scope.model.platforms = undefined;
+  }
+
+  $scope.clone = function(template){
+    $http.post('/template', {
+        name: 'Copy of ' + template.name,
+        description: template.description,
+        project: template.project,
+        platforms: template.platforms,
+        tests: template.tests,
+        devices: template.devices,
+        suites: template.suites
+      }
+    ).success(function(data){
+      window.location.href = '/template/edit?id='+data.id;
+    }).error(function(error){
+      console.log('error, ', error);
+    });
   }
 
 }]);

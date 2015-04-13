@@ -28,35 +28,45 @@ block content
           ng-form.btn-group(name='filter-project')
             button.btn.btn-danger(
               ng-class="{active: filter-project.$pristine}"
-              ng-change='setFilter({"project":projects, "platform": model.platform})'
+              ng-change='setFilter({"project":projects, "platforms": model.platforms})'
               ng-model='model.project'
               btn-radio='projects') All
             button.btn.btn-danger(
               ng-repeat='project in projects'
               ng-model='model.project'
-              ng-change='setFilter({"project":project, "platform": model.platform})'
+              ng-change='setFilter({"project":project, "platforms": model.platforms})'
               btn-radio='project'
               name='project.name') {{project.name}}
         // Platform Filter
         ng-form.btn-group(name='filter-platform')
           button.btn.btn-warning(
             ng-class="{active: filter-platform.$pristine}"
-            ng-change='setFilter({"platform": platforms, "project": model.project})'
-            ng-model='model.platform'
+            ng-change='setFilter({"platforms": platforms, "project": model.project})'
+            ng-model='model.platforms'
             btn-radio='platforms') All
           button.btn.btn-warning(
             ng-repeat='platform in platforms'
-            ng-model='model.platform'
-            ng-change='setFilter({"platform":platform, "project": model.project})'
+            ng-model='model.platforms'
+            ng-change='setFilter({"platforms":platform, "project": model.project})'
             btn-radio='platform'
             ) {{platform.name}}
 
     // Results
-    h4(ng-show='state.clone') Results
-      .well(
-        ng-show='state.clone'
-        ng-repeat='template in model.results') {{template}}
-        span.badge(ng-repeat='platform in template') {{platform.name}}
+    h3.text-center(ng-show='state.clone') Results
+    .well.row(
+      ng-show='state.clone'
+      ng-repeat='template in model.results')
+      .col-md-8.col-xs-12
+        h4
+          strong{{template.name}}
+        h4 {{template.description}}
+        button.btn.btn-primary(
+          ng-click='clone(template)') Clone
+      .col-md-4
+        h4
+          span.label.label-danger{{template.project.name}}
+        h4
+          span.label.label-warning(ng-repeat='platform in template.platforms') {{platform.name}}
               
         // After selection, redirect to :id/template-edit
 append scripts
