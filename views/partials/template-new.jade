@@ -1,9 +1,10 @@
 extends ../layout.jade
 
+block navbar-brand
+  a.navbar-brand.hidden-xs(href='#')=sails.config.appName + ' - New Template'
+
 block content
   div.container(ng-controller='TemplateNewCtrl')
-    .page-header.text-center
-      h2 New Template
     div.animate-show(ng-show='state.reset')
       .text-center
         h3 Step 1

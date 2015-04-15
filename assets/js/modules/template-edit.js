@@ -2,8 +2,9 @@
 // Edit Template controller
 
 angular.module('patch-it').controller('TemplateEditCtrl', ['$scope', '$http', function ($scope, $http){
-  console.log(window.location.search)
-  $http.get('/template').success(function(data){
+  var query = window.location.search
+  console.log(query)
+  $http.get(('/template'+query)).success(function(data){
     $scope.template = data
   });
 }]);

@@ -1,8 +1,11 @@
 extend ../layout.jade
 
+block navbar-brand
+  a.navbar-brand.hidden-xs(href='#')=sails.config.appName + ' - Edit Template'
+
 block content
   div.container(ng-controller='TemplateEditCtrl')
-    .page-header.text-center
-      h2 Edit Template
+      h2.small {{template.name}}
+      h2.small {{template.description}}
 append scripts
   script(src='/js/modules/template-edit.js')

@@ -31,7 +31,8 @@ html(ng-app='patch-it' lang='en')
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand.hidden-xs(href='#')=sails.config.appName
+            block navbar-brand
+              a.navbar-brand.hidden-xs(href='#')=sails.config.appName
             .menu-hud.pull-left
               block menu-hud
        
@@ -57,6 +58,7 @@ html(ng-app='patch-it' lang='en')
                   li
                     a(href='#') One more separated link
           // /.nav-collapse
+      block header
       .container
         block content
         block footer
