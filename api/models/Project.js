@@ -13,11 +13,13 @@ module.exports = {
       unique: true,
       required: true
     },
+    /*
     platforms: {
       collection: 'platform',
       via: 'projects',
       dominant: true
     },
+    */
     devices: {
       collection: 'device',
       via: 'projects',

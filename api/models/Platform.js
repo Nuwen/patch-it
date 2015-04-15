@@ -12,10 +12,11 @@ module.exports = {
       type: 'string',
       unique: true
     },
-    projects: {
+    /*projects: {
       collection: 'project',
       via: 'platforms'
     },
+    */
     devices: {
       collection: 'device',
       via: 'platforms'

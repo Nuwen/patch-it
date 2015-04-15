@@ -78,7 +78,6 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
 
   $scope.newPlatformById = function(platforms){
     $scope.new.platforms.all = false;
-    console.log($scope.new.platforms);
   }
 
   $scope.newPlatformAll = function(platforms){
@@ -87,6 +86,38 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
         $scope.new.platforms[property] = false;
       }
     } 
+  }
+
+  $scope.create = function(params){
+    // POST template
+    $http.post('/template', {
+      name: params.name,
+      description: params.description,
+      project: params.project
+    }).success(function(data){
+      for (var platform in params.platforms){
+        console.log(platform);
+        console.log(params.platforms[platform]);
+        if (params.platforms[platform] == true && params.platforms.all != true ){
+            // for each selected platform
+            // POST /template/:id/platforms/:id
+            $http.post(('/template/'+data.id+'/platforms/'+platform))
+            .success(function(data){
+              window.location.href = '/template/edit?id='+data.id;
+            });
+          }
+        if (params.platforms.all == true) {
+          // for ALL platforms
+          // POST /template/:id/platforms/:id
+          for (var all in $scope.platforms){
+            $http.post(('/template/'+data.id+'/platforms/'+all.id))
+            .success(function(data){
+              window.location.href = '/template/edit?id='+data.id;
+            });
+          }
+        }
+      }
+    });
   }
 
 }]);
