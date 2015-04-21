@@ -112,7 +112,7 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
             $http.post(('/platform/'+item.id+'/templates/'+template.id))
             .success(function(data){
               //window.location.href = '/template/edit?id='+data.id;
-              console.log(data)
+              window.location.href = '/template/edit?id='+template.id;
             });
           }
         }
