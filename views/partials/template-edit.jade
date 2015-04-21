@@ -5,7 +5,10 @@ block navbar-brand
 
 block content
   div.container(ng-controller='TemplateEditCtrl')
-      h2.small {{template.name}}
-      h2.small {{template.description}}
+      h2 {{template.name}}
+      h2 {{template.description}}
+
+  <i class="fa fa-lock"></i>
+
 append scripts
   script(src='/js/modules/template-edit.js')
