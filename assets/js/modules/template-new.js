@@ -72,11 +72,7 @@ angular.module('patch-it').controller('TemplateNewCtrl', ['$scope', '$http', fun
     });
   }
 
-  $scope.create = function(params){
-
-  }
-
-  $scope.newPlatformById = function(platforms){
+  $scope.newPlatformByID = function(platforms){
     $scope.new.platforms.all = false;
   }
 

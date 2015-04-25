@@ -17,7 +17,7 @@ block content
         ng-repeat='alert in alerts'
         type='{{alert.type}}'
         close='closeAlert($index)') {{alert.msg.error}}
-    div(class='form-group col-md-4 col-md-offset-4')
+    div(class='input-group col-md-4 col-md-offset-4')
       label(for='email') Email
       input(
         class='form-control'
@@ -34,7 +34,7 @@ block content
         class='help-block'
         ng-show='loginForm.email.$error.email'
         ) Invalid email
-    div(class='form-group col-md-4 col-md-offset-4')
+    div(class='input-group col-md-4 col-md-offset-4')
       label(for='password') Password
       input(
         class='form-control'

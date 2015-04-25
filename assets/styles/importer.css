@@ -9523,4 +9523,24 @@ body {
   padding-bottom: 8px;
 }
 
+.margin-left-20 {
+  margin-left: 20px;
+}
+
+.back-to-top {
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  z-index: 100;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.back-to-top i {
+  font-size: 60px;
+}
+
 /*# sourceMappingURL=importer.css.map */

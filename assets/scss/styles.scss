@@ -20,3 +20,25 @@ body { padding-top: 70px; }
   padding-bottom: 8px;
 }
 
+// Generic padding & margins
+.margin-left-20 {
+  margin-left: 20px;
+}
+
+// Back to top class (page up)
+
+.back-to-top {
+margin: 0;
+position: fixed;
+bottom: 0;
+right: 0;
+width: 70px;
+height: 70px;
+z-index: 100;
+text-decoration: none;
+color: #ffffff;
+}
+
+.back-to-top i {
+  font-size: 60px;
+}

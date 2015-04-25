@@ -48,7 +48,7 @@ block content
             .btn-group()
               button.btn.btn-warning(
                 ng-repeat='platform in platforms'
-                ng-change='newPlatformById(platform)'
+                ng-change='newPlatformByID(platform)'
                 ng-model='new.platforms[platform.id]'
                 btn-checkbox) {{platform.name}}
               button.btn.btn-warning(

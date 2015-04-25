@@ -1,14 +1,81 @@
 extend ../layout.jade
 
 block navbar-brand
-  a.navbar-brand.hidden-xs(href='#')=sails.config.appName + ' - Edit Template'
+
+  a.navbar-brand.hidden-xs(href='#')
+    i.fa.fa-pencil-square-o  Edit Template
+    
+
+
 
 block content
   div.container(ng-controller='TemplateEditCtrl')
-      h2 {{template.name}}
-      h2 {{template.description}}
+    .col-md-5.col-md-offset-3.form-inline(ng-show="lock.status == 'lock'")
+      h3 
+        small() Name: 
+        .well.well-sm {{template.name}}
+      h3
+        small() Description: 
+        .well.well-sm {{template.description}}
+      h3
+        small() Project: 
+        .well.well-sm {{template.project.name}}
+      h3
+        small() Platforms:  
+        span.label.label-warning(ng-repeat="platform in template.platforms") {{platform.name}}
+      
+    // editing is unlocked
+    .col-md-8.col-md-offset-2.form-inline(ng-show="lock.status == 'unlock'")
+      form(
+      novalidate
+      ng-controller="TemplateEditCtrl"
+      ng-submit="save(data)"
+      name="inputForm"
+      role="form" )
+        .form-group.margin-left-20
+          h3
+            small() Set Name:
+          input(type="text" 
+          class="form-control" 
+          placeholder="{{template.name}}"
+          ng-model="template.name")        
+        .form-group.margin-left-20
+          h3
+            small() Set Description:
+          input(type="text"
+            class="form-control"
+            placeholder="{{template.description}}"
+            ng-model="template.description")
+        .form-group.margin-left-20
+          h3
+            small() Change Project:
+          select(type="text"
+            class="form-control"
+            ng-model="template.project"
+          ng-options="project as project.name for project in projects track by project.id")
+        .form-group.margin-left-20
+          h3
+            small() Set Platforms:
+            .btn-group()
+              button.btn.btn-warning(
+                ng-repeat="platform in platforms"
+                ng-change="savePlatformsByID(platform)"
+                ng-model="save[platform.id]"
+                ng-class="setActive(platform)"
+                btn-checkbox) {{platform.name}}
+              button.btn.btn-warning(
+                ng.change="savePlatformAll()"
+                ng-model="save.all"
+                btn-checkbox) All
 
-  <i class="fa fa-lock"></i>
+
+    // lock/unlock button
+    a.btn.btn-lg.btn-block.back-to-top(
+      class="btn-{{lock.btn}}"
+      ng-click="enableEdit()")
+      i.fa(class="fa-{{lock.status}}")
+
 
 append scripts
   script(src='/js/modules/template-edit.js')
+  script(src='/js/modules/back-to-top.js')
